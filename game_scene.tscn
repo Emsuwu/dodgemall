@@ -1,0 +1,307 @@
+[gd_scene load_steps=31 format=3 uid="uid://cmhyvwfpih26s"]
+
+[ext_resource type="PackedScene" uid="uid://don858eg3vhhb" path="res://Player/player.tscn" id="1_mlf6e"]
+[ext_resource type="Texture2D" uid="uid://c4spwfa0pgi7e" path="res://bg.svg" id="2_po0ka"]
+[ext_resource type="Script" uid="uid://dljf4ulbwi43o" path="res://General/weapon_spawner.gd" id="3_v1wow"]
+[ext_resource type="PackedScene" uid="uid://dsfg0fxtgsg5t" path="res://Weapon/Scenes/dagger_black.tscn" id="4_e35lh"]
+[ext_resource type="PackedScene" uid="uid://c26hwhk561kc3" path="res://Weapon/Scenes/dagger_red.tscn" id="5_udeyl"]
+[ext_resource type="PackedScene" uid="uid://b84lytcxolu6g" path="res://Weapon/Scenes/nunchuck.tscn" id="6_miq82"]
+[ext_resource type="PackedScene" uid="uid://iise3pr1mxmu" path="res://Weapon/Scenes/shuriken_gold.tscn" id="7_j5hk1"]
+[ext_resource type="PackedScene" uid="uid://djcidmddw0huo" path="res://Weapon/Scenes/shuriken_silver.tscn" id="8_ueiaa"]
+[ext_resource type="Script" uid="uid://cps7xsewnuxyu" path="res://General/game_over_ui_appear.gd" id="9_miq82"]
+[ext_resource type="FontFile" uid="uid://qbdgbrufbu4a" path="res://Font/Mocha Choco.otf" id="9_udeyl"]
+[ext_resource type="Script" uid="uid://r5hvtfskk2uo" path="res://GUI/grow_button_hover.gd" id="11_j5hk1"]
+[ext_resource type="Texture2D" uid="uid://bjaw7mhsmd3x6" path="res://GUI/button.svg" id="11_mlphb"]
+[ext_resource type="AudioStream" uid="uid://cw4jkbgqkkv0b" path="res://GUI/pop.ogg" id="12_ueiaa"]
+[ext_resource type="Texture2D" uid="uid://c7e4ofky67xlk" path="res://GUI/restart.png" id="13_bpcsf"]
+[ext_resource type="Script" uid="uid://it315mkt23c3" path="res://GUI/play_pop.gd" id="13_daj04"]
+[ext_resource type="Texture2D" uid="uid://fqf7efe633eu" path="res://GUI/home.png" id="13_opqoc"]
+[ext_resource type="AudioStream" uid="uid://bfa2mokwsdat6" path="res://General/DeathSounds/explosion.wav" id="17_1wc4g"]
+[ext_resource type="Script" uid="uid://cam757cd3nb7k" path="res://General/DeathSounds/game_over_audio.gd" id="17_3d2pr"]
+[ext_resource type="AudioStream" uid="uid://cogqnykwylm6g" path="res://General/DeathSounds/wahwahwahwah.mp3" id="18_h5hfs"]
+[ext_resource type="AudioStream" uid="uid://cbo54ql2pkjww" path="res://Dodgemall.ogg" id="19_snaye"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_daj04"]
+texture = ExtResource("11_mlphb")
+modulate_color = Color(0.9118271, 0.8086449, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bpcsf"]
+texture = ExtResource("11_mlphb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlphb"]
+texture = ExtResource("11_mlphb")
+modulate_color = Color(0.950218, 0.595894, 0.5986127, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3d2pr"]
+texture = ExtResource("11_mlphb")
+
+[sub_resource type="Animation" id="Animation_miq82"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_udeyl"]
+resource_name = "game_over_pop_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25881627, 0.25881627),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j5hk1"]
+_data = {
+&"RESET": SubResource("Animation_miq82"),
+&"game_over_pop_in": SubResource("Animation_udeyl")
+}
+
+[sub_resource type="Animation" id="Animation_snaye"]
+resource_name = "fade_out_music"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 2.928171),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_1wc4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78j2m"]
+_data = {
+&"RESET": SubResource("Animation_1wc4g"),
+&"fade_out_music": SubResource("Animation_snaye")
+}
+
+[node name="Root" type="Node"]
+
+[node name="Root2D" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Root2D"]
+position = Vector2(961, 539)
+texture = ExtResource("2_po0ka")
+
+[node name="Player" parent="Root2D" node_paths=PackedStringArray("game_over_ui") instance=ExtResource("1_mlf6e")]
+position = Vector2(960, 540)
+game_over_ui = NodePath("../../GameOverUI")
+
+[node name="WeaponSpawner" type="Node2D" parent="Root2D" node_paths=PackedStringArray("spawn_top_left", "spawn_top_right", "spawn_timer")]
+script = ExtResource("3_v1wow")
+min_spawn_rate = 0.242
+max_spawn_rate = 0.78
+weapons = Array[PackedScene]([ExtResource("4_e35lh"), ExtResource("5_udeyl"), ExtResource("6_miq82"), ExtResource("7_j5hk1"), ExtResource("8_ueiaa")])
+spawn_top_left = NodePath("SpawnTopLeft")
+spawn_top_right = NodePath("SpawnBottomRight")
+spawn_timer = NodePath("SpawnTimer")
+
+[node name="SpawnTopLeft" type="Node2D" parent="Root2D/WeaponSpawner"]
+position = Vector2(-599, 5)
+
+[node name="SpawnBottomRight" type="Node2D" parent="Root2D/WeaponSpawner"]
+position = Vector2(2151, 1080)
+
+[node name="SpawnTimer" type="Timer" parent="Root2D/WeaponSpawner"]
+
+[node name="GameOverUI" type="Control" parent="." node_paths=PackedStringArray("death_message", "music", "music_animator")]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -957.0
+offset_top = -528.0
+offset_right = -917.0
+offset_bottom = -488.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 500)
+script = ExtResource("9_miq82")
+death_messages = ["See you later alligator", "That wasn't very [color=white]skibidi[/color] of you", "womp womp", "Flip you", "Watch ad to retry", "wahwahwahwawawa", "Where's the light shining from?"]
+death_message = NodePath("DeathMessage")
+music = NodePath("../Music")
+music_animator = NodePath("../Music/FadeOutMusic")
+
+[node name="ColorRect" type="ColorRect" parent="GameOverUI"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = 186.0
+offset_right = 1980.0
+offset_bottom = 894.0
+pivot_offset = Vector2(358.375, 127.95)
+color = Color(0, 0, 0, 0.7019608)
+
+[node name="Medal" type="RichTextLabel" parent="GameOverUI"]
+layout_mode = 0
+offset_left = 972.0
+offset_top = 440.0
+offset_right = 1931.0
+offset_bottom = 660.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/normal_font = ExtResource("9_udeyl")
+theme_override_font_sizes/normal_font_size = 76
+bbcode_enabled = true
+text = " 
+ Medal: [img width=90]res://Collectable/Sprites/gold_coin.svg[/img]
+ "
+
+[node name="Scores" type="RichTextLabel" parent="GameOverUI"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = 444.0
+offset_right = 923.0
+offset_bottom = 666.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/normal_font = ExtResource("9_udeyl")
+theme_override_font_sizes/normal_font_size = 76
+bbcode_enabled = true
+text = "[right]Score:[/right] 0 
+[right]Hi-Score:[/right] 0 
+"
+
+[node name="DeathMessage" type="RichTextLabel" parent="GameOverUI"]
+layout_mode = 0
+offset_top = 351.0
+offset_right = 1920.0
+offset_bottom = 573.0
+theme_override_colors/default_color = Color(0.96862745, 0.84705883, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/normal_font = ExtResource("9_udeyl")
+theme_override_font_sizes/normal_font_size = 71
+bbcode_enabled = true
+text = "[center]You died[/center]"
+
+[node name="GameOver" type="RichTextLabel" parent="GameOverUI"]
+layout_mode = 0
+offset_top = 222.0
+offset_right = 1923.0
+offset_bottom = 425.0
+theme_override_colors/default_color = Color(1, 0, 0.26666668, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/normal_font = ExtResource("9_udeyl")
+theme_override_font_sizes/normal_font_size = 121
+bbcode_enabled = true
+text = "[center]Game Over[/center]"
+
+[node name="Retry" type="Button" parent="GameOverUI" node_paths=PackedStringArray("hover_pop")]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 698.0
+offset_right = 898.0
+offset_bottom = 824.0
+pivot_offset = Vector2(219.5, 63)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("9_udeyl")
+theme_override_font_sizes/font_size = 76
+theme_override_styles/normal = SubResource("StyleBoxTexture_daj04")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bpcsf")
+text = "      Retry"
+script = ExtResource("11_j5hk1")
+hover_pop = NodePath("../HoverPop")
+
+[node name="TextureRect" type="TextureRect" parent="GameOverUI/Retry"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 23.0
+offset_right = 135.0
+offset_bottom = 106.0
+texture = ExtResource("13_bpcsf")
+
+[node name="Home" type="Button" parent="GameOverUI" node_paths=PackedStringArray("hover_pop")]
+layout_mode = 0
+offset_left = 983.0
+offset_top = 698.0
+offset_right = 1422.0
+offset_bottom = 824.0
+pivot_offset = Vector2(219.5, 63)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("9_udeyl")
+theme_override_font_sizes/font_size = 76
+theme_override_styles/normal = SubResource("StyleBoxTexture_mlphb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3d2pr")
+text = "      Home"
+script = ExtResource("11_j5hk1")
+hover_pop = NodePath("../HoverPop")
+
+[node name="TextureRect" type="TextureRect" parent="GameOverUI/Home"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 46.0
+offset_top = 16.0
+offset_right = 146.0
+offset_bottom = 110.0
+texture = ExtResource("13_opqoc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameOverUI"]
+libraries = {
+&"": SubResource("AnimationLibrary_j5hk1")
+}
+
+[node name="HoverPop" type="AudioStreamPlayer" parent="GameOverUI"]
+stream = ExtResource("12_ueiaa")
+script = ExtResource("13_daj04")
+
+[node name="GameOverAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_1wc4g")
+script = ExtResource("17_3d2pr")
+_wahwahwahwah = ExtResource("18_h5hfs")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_snaye")
+autoplay = true
+
+[node name="FadeOutMusic" type="AnimationPlayer" parent="Music"]
+libraries = {
+&"": SubResource("AnimationLibrary_78j2m")
+}
+
+[connection signal="timeout" from="Root2D/WeaponSpawner/SpawnTimer" to="Root2D/WeaponSpawner" method="_on_timer_timeout"]
+[connection signal="button_down" from="GameOverUI/Retry" to="GameOverUI" method="_on_retry_button_down"]
+[connection signal="button_down" from="GameOverUI/Home" to="GameOverUI" method="_on_retry_button_down"]

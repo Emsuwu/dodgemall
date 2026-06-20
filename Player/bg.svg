@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1280.3781mm"
+   height="720.37805mm"
+   viewBox="0 0 1280.3781 720.37805"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2">
+      <rect
+         style="fill:#f5aaaa;fill-opacity:1;stroke:#ffffff;stroke-width:0.378;stroke-linejoin:round;paint-order:stroke fill markers"
+         id="rect3"
+         width="1280"
+         height="720"
+         x="23.446154"
+         y="148.16667" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3">
+      <rect
+         style="fill:#f5aaaa;fill-opacity:1;stroke:#ffffff;stroke-width:0.378;stroke-linejoin:round;paint-order:stroke fill markers"
+         id="rect4"
+         width="1280"
+         height="720"
+         x="23.446154"
+         y="148.16667" />
+    </clipPath>
+  </defs>
+  <g
+     id="layer7"
+     transform="translate(0,-297)">
+    <rect
+       style="fill:#f5d8cb;fill-opacity:1;stroke:#ffffff;stroke-width:0.378;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="rect2"
+       width="1280"
+       height="720"
+       x="0.189"
+       y="297.189" />
+    <ellipse
+       style="fill:#f5aaaa;fill-opacity:1;stroke:#ffffff;stroke-width:0.435499;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="path2"
+       cx="663.44617"
+       cy="187.64255"
+       rx="906.55585"
+       ry="157.34177"
+       clip-path="url(#clipPath3)"
+       transform="translate(-23.257154,149.02233)" />
+    <ellipse
+       style="fill:#f5aaaa;fill-opacity:1;stroke:#ffffff;stroke-width:0.435499;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="path2-8"
+       cx="663.44617"
+       cy="828.6908"
+       rx="906.55585"
+       ry="157.34177"
+       clip-path="url(#clipPath2)"
+       transform="translate(-23.257154,149.02233)" />
+  </g>
+</svg>

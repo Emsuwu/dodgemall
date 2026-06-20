@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://don858eg3vhhb"]
+
+[ext_resource type="Texture2D" uid="uid://ce16d5kbxvlss" path="res://Player/Skin/trans.svg" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://duk6eqkg5hhjt" path="res://Player/player.gd" id="2_4ntmi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l8h54"]
+radius = 224.99998
+
+[node name="Player" type="Sprite2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_l8h54")
+script = ExtResource("2_4ntmi")
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l8h54")
+debug_color = Color(0.9977191, 0, 0.16986793, 0.41960785)
