@@ -1,20 +1,154 @@
-[gd_scene load_steps=4 format=3 uid="uid://don858eg3vhhb"]
+[gd_scene load_steps=16 format=3 uid="uid://don858eg3vhhb"]
 
 [ext_resource type="Texture2D" uid="uid://ce16d5kbxvlss" path="res://Player/Skin/trans.svg" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://duk6eqkg5hhjt" path="res://Player/player.gd" id="2_4ntmi"]
+[ext_resource type="AudioStream" uid="uid://cslwkcjebh722" path="res://Player/graze.wav" id="3_gwnis"]
+[ext_resource type="Script" uid="uid://ds6fo7hbpprjc" path="res://audio_stream_randomizer.gd" id="4_k53q1"]
+[ext_resource type="Texture2D" uid="uid://dqwa6bngrao7f" path="res://Player/player_outline.svg" id="5_k53q1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l8h54"]
 radius = 224.99998
 
-[node name="Player" type="Sprite2D"]
+[sub_resource type="Gradient" id="Gradient_4ntmi"]
+colors = PackedColorArray(0.9406764, 8.20148e-05, 0.72965765, 1, 0.6835868, 0, 0.19457331, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_btcbx"]
+gradient = SubResource("Gradient_4ntmi")
+
+[sub_resource type="Curve" id="Curve_4ntmi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_btcbx"]
+curve = SubResource("Curve_4ntmi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gwnis"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 900.0
+gravity = Vector3(0, 0, 0)
+scale_min = 15.0
+scale_max = 15.0
+scale_curve = SubResource("CurveTexture_btcbx")
+color_ramp = SubResource("GradientTexture1D_btcbx")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ntmi"]
+radius = 110.0
+
+[sub_resource type="Animation" id="Animation_k53q1"]
+resource_name = "graze"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.22, 0.22), Vector2(0.445, 0.445)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fhl08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.22, 0.22)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtle1"]
+_data = {
+&"RESET": SubResource("Animation_fhl08"),
+&"graze": SubResource("Animation_k53q1")
+}
+
+[node name="Player" type="Node2D" node_paths=PackedStringArray("death_area", "death_area_shape", "death_particles", "sprite", "graze_sound", "graze_sprite", "graze_animator")]
+script = ExtResource("2_4ntmi")
+death_area = NodePath("DeathArea")
+death_area_shape = NodePath("DeathArea/CollisionShape2D")
+death_particles = NodePath("DeathParticles")
+sprite = NodePath("Player")
+graze_sound = NodePath("GrazeSound")
+graze_sprite = NodePath("GrazeOutline")
+graze_animator = NodePath("GrazeOutline/AnimationPlayer")
+
+[node name="Player" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_l8h54")
-script = ExtResource("2_4ntmi")
 
-[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+[node name="DeathArea" type="Area2D" parent="." groups=["player"]]
+scale = Vector2(0.2, 0.2)
 collision_layer = 2
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
 shape = SubResource("CircleShape2D_l8h54")
 debug_color = Color(0.9977191, 0, 0.16986793, 0.41960785)
+
+[node name="DeathParticles" type="GPUParticles2D" parent="."]
+scale = Vector2(0.19999999, 0.19999999)
+emitting = false
+amount = 64
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_gwnis")
+
+[node name="GrazeArea" type="Area2D" parent="." groups=["player_graze_area"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrazeArea"]
+shape = SubResource("CircleShape2D_4ntmi")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="GrazeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gwnis")
+script = ExtResource("4_k53q1")
+audio_clips = Array[AudioStream]([ExtResource("3_gwnis")])
+min_pitch = 0.9
+max_pitch = 1.2
+
+[node name="GrazeOutline" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-0.1, -0.1)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("5_k53q1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GrazeOutline"]
+libraries = {
+&"": SubResource("AnimationLibrary_vtle1")
+}

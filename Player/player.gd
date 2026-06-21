@@ -1,15 +1,26 @@
 @icon("res://Player/Skin/trans.svg")
-class_name Player
-extends Sprite2D
-@onready var area_2d: Area2D = $Area2D
-@onready var circle: CollisionShape2D = $Area2D/CollisionShape2D
+class_name Player extends Node2D
 
+@export_group("References")
+@export var death_area : Area2D
+@export var death_area_shape : CollisionShape2D
 @export var game_over_ui : Control
+@export var death_particles : GPUParticles2D
+@export var sprite : Sprite2D
+@export var graze_sound : AudioStreamRandom
+@export var graze_sprite : Sprite2D
+@export var graze_animator : AnimationPlayer
 
+static var score : float
+
+var is_dead : bool
 var velocity: Vector2
-const BASE_SPEED : float = 50
+const BASE_SPEED : float = 60
 const DRAG : float = 0.9
-const RATE_OF_SIZE_CHANGE : float = .005
+const RATE_OF_SIZE_CHANGE : float = .01
+
+func _ready():
+	score = 0
 
 func change_size(amount : float) -> void:
 	scale.x += amount
@@ -21,13 +32,15 @@ func get_size() -> float:
 	return scale.x
 
 func _process(delta) -> void:
+	if is_dead: return
 	do_debug_keys(delta)
 	do_movement(delta)
 	gradually_increase_size(delta)
+	score += delta
 
 func gradually_increase_size(delta : float) -> void:
-	if get_size() >= 0.5: return
-	change_size(delta*RATE_OF_SIZE_CHANGE)
+	if get_size() >= 2: return
+	change_size(delta * RATE_OF_SIZE_CHANGE)
 
 func do_movement(delta : float) -> void:
 	var dy : float = Input.get_axis("up", "down")
@@ -56,6 +69,18 @@ func do_debug_keys(delta : float) -> void:
 		set_size(-delta)
 
 func on_death() -> void:
+	if is_dead: return
+	score -= 5
+	sprite.hide()
 	print("death")
+	is_dead = true
 	game_over_ui.appear()
+	#modulate = Color(0,0,0,0)
+	death_particles.emitting = true
+	await get_tree().create_timer(1).timeout
 	queue_free()
+
+func on_graze() -> void:
+	score += 5
+	graze_sound.play_random()
+	graze_animator.play("graze")

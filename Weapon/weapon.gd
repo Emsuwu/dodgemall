@@ -22,3 +22,5 @@ func _process(delta):
 func _on_area_2d_area_entered(area: Area2D):
 	if area.is_in_group("player"):
 		area.owner.on_death()
+	elif area.is_in_group("player_graze_area"):
+		area.owner.on_graze()

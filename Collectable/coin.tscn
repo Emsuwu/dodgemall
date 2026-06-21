@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8f6ewex65qdd"]
+
+[ext_resource type="Script" uid="uid://s8tmb00monks" path="res://Collectable/coin.gd" id="1_lls8f"]
+[ext_resource type="Texture2D" uid="uid://d332le7suuce1" path="res://Collectable/Sprites/gold_coin.svg" id="2_yryn7"]
+[ext_resource type="Texture2D" uid="uid://ckwct34xtidje" path="res://Collectable/Sprites/silver_coin.svg" id="3_i57xu"]
+[ext_resource type="AudioStream" uid="uid://ba0qywhg2a6xi" path="res://Collectable/pickup_coin.wav" id="4_yryn7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lls8f"]
+radius = 49.0
+
+[sub_resource type="Gradient" id="Gradient_yryn7"]
+colors = PackedColorArray(1, 0.8111172, 0.31426793, 1, 1, 0.9393334, 0.089999974, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i57xu"]
+gradient = SubResource("Gradient_yryn7")
+
+[sub_resource type="Curve" id="Curve_u0r5y"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.3741837, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nb7fu"]
+curve = SubResource("Curve_u0r5y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pf7hs"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 218.84
+gravity = Vector3(0, 0, 0)
+scale_min = 15.0
+scale_max = 43.96
+scale_curve = SubResource("CurveTexture_nb7fu")
+color_ramp = SubResource("GradientTexture1D_i57xu")
+
+[node name="Coin" type="Node2D" node_paths=PackedStringArray("sprite", "plink_sound", "particles")]
+script = ExtResource("1_lls8f")
+gold_coin = ExtResource("2_yryn7")
+silver_coin = ExtResource("3_i57xu")
+sprite = NodePath("Sprite2D")
+plink_sound = NodePath("Plink")
+particles = NodePath("GPUParticles2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_yryn7")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_lls8f")
+
+[node name="Plink" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yryn7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 24
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pf7hs")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="71.089401mm"
+   height="52.995434mm"
+   viewBox="0 0 71.089401 52.995434"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-61.092931,-23.978448)">
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="rect1"
+       width="28.960756"
+       height="36.179096"
+       x="61.092934"
+       y="32.386616"
+       rx="2.0817816"
+       ry="2.9609885" />
+    <path
+       id="rect2"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0;stroke-linejoin:round;paint-order:stroke fill markers"
+       d="m 79.918735,32.386616 17.518242,-8.362589 c 0.720862,-0.344113 1.363284,1.320601 1.363284,2.960988 v 46.982298 c 0,1.640387 -0.642422,3.305101 -1.363284,2.960988 L 79.918735,68.565712 C 79.197877,68.2216 78.55545,67.245111 78.55545,65.604724 v -30.25712 c 0,-1.640387 0.642427,-2.616876 1.363285,-2.960988 z" />
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="rect3"
+       width="29.999016"
+       height="29.999016"
+       x="102.18333"
+       y="35.606777"
+       rx="2.0817816"
+       ry="2.960988" />
+    <circle
+       style="fill:#1a1a1a;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="circle3"
+       cx="108.9483"
+       cy="42.058899"
+       r="3.5422862" />
+    <circle
+       style="fill:#1a1a1a;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="circle4"
+       cx="117.78101"
+       cy="51.305645"
+       r="3.5422862" />
+    <circle
+       style="fill:#1a1a1a;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="path3"
+       cx="126.52172"
+       cy="59.724327"
+       r="3.5422862" />
+  </g>
+</svg>
