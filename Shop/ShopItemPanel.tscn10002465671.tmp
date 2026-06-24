@@ -1,0 +1,196 @@
+[gd_scene load_steps=25 format=3 uid="uid://cl7jk6mipxyfp"]
+
+[ext_resource type="Texture2D" uid="uid://c841ggiwe3g54" path="res://Shop/shop_item_panel.svg" id="1_2346t"]
+[ext_resource type="Script" uid="uid://duv8625kpmssq" path="res://Shop/shop_item_panel.gd" id="1_b12lj"]
+[ext_resource type="Texture2D" uid="uid://c7tyc4xc6qcw7" path="res://Shop/shop_item_description.svg" id="2_hrc23"]
+[ext_resource type="Texture2D" uid="uid://dl6lq66uhbfhv" path="res://Shop/shop_item_price.svg" id="2_w1b53"]
+[ext_resource type="Texture2D" uid="uid://c8mtixyk282gu" path="res://Shop/shop_item_purchase_button.svg" id="3_w7yga"]
+[ext_resource type="FontFile" uid="uid://qbdgbrufbu4a" path="res://Font/Mocha Choco.otf" id="4_l0je8"]
+[ext_resource type="Script" uid="uid://r5hvtfskk2uo" path="res://GUI/grow_button_hover.gd" id="6_8tcai"]
+[ext_resource type="Texture2D" uid="uid://ce16d5kbxvlss" path="res://Player/Skin/trans.svg" id="6_nbyti"]
+[ext_resource type="Script" uid="uid://5f3axtcjl2o0" path="res://Shop/purchase_button.gd" id="7_e1oly"]
+[ext_resource type="AudioStream" uid="uid://cw4jkbgqkkv0b" path="res://GUI/pop.ogg" id="8_sdcdb"]
+[ext_resource type="Script" uid="uid://it315mkt23c3" path="res://GUI/play_pop.gd" id="9_e1oly"]
+[ext_resource type="AudioStream" uid="uid://cs31t5sjkot02" path="res://Shop/kaching.mp3" id="11_fcb1q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w1b53"]
+texture = ExtResource("1_2346t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e1oly"]
+texture = ExtResource("2_hrc23")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w7yga"]
+texture = ExtResource("2_w1b53")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hrc23"]
+texture = ExtResource("3_w7yga")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sdcdb"]
+texture = ExtResource("3_w7yga")
+modulate_color = Color(0.9019608, 0.6313726, 0.627451, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0je8"]
+texture = ExtResource("3_w7yga")
+modulate_color = Color(0.93364304, 0.7300592, 0.7243705, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nbyti"]
+texture = ExtResource("3_w7yga")
+modulate_color = Color(0.9035839, 0.62993366, 0.6275058, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8tcai"]
+texture = ExtResource("3_w7yga")
+modulate_color = Color(0.32544088, 0.3254409, 0.32544088, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwk3p"]
+texture = ExtResource("6_nbyti")
+
+[sub_resource type="Animation" id="Animation_fcb1q"]
+resource_name = "Purchase"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1.5157169, 1.5157169),
+"update": 0,
+"values": [Color(0, 0.79103875, 0.42001426, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b12lj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b5rti"]
+_data = {
+&"Purchase": SubResource("Animation_fcb1q"),
+&"RESET": SubResource("Animation_b12lj")
+}
+
+[node name="ShopItem" type="Control" node_paths=PackedStringArray("icon", "description", "price")]
+layout_mode = 3
+anchor_left = -0.15
+anchor_top = -0.34
+anchor_right = 0.14600001
+anchor_bottom = 0.335
+offset_top = 0.2000122
+offset_right = 0.67996216
+offset_bottom = 0.19998169
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(288, 367)
+size_flags_horizontal = 3
+script = ExtResource("1_b12lj")
+icon = NodePath("PreviewIcon")
+description = NodePath("DescriptionPanel/RichTextLabel2")
+price = NodePath("PricePanel/RichTextLabel")
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 568.66
+offset_bottom = 729.88
+theme_override_styles/panel = SubResource("StyleBoxTexture_w1b53")
+
+[node name="DescriptionPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 346.0
+offset_right = 541.0
+offset_bottom = 570.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_e1oly")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="DescriptionPanel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 16.0
+offset_right = 493.0
+offset_bottom = 209.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_l0je8")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]A description usually goes in this box here! Hey isn't that cool![/center]"
+
+[node name="PricePanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 372.0
+offset_right = 568.66
+offset_bottom = 86.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w7yga")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PricePanel"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 192.0
+offset_bottom = 134.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_l0je8")
+theme_override_font_sizes/normal_font_size = 51
+bbcode_enabled = true
+text = "[right][img width=50]res://Collectable/Sprites/gem.svg[/img] 150 [/right]"
+fit_content = true
+
+[node name="Button" type="Button" parent="." node_paths=PackedStringArray("hover_pop")]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 583.0
+offset_right = 541.0
+offset_bottom = 688.0
+pivot_offset = Vector2(253, 52)
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.3973609, 0.5074322, 0, 1)
+theme_override_colors/font_focus_color = Color(0.39607844, 0.5058824, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.276923, 0.3577067, 0, 1)
+theme_override_colors/font_hover_color = Color(0.39607844, 0.5058824, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.39607844, 0.5058824, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.25202727, 0.2520278, 0.25202736, 0.5019608)
+theme_override_fonts/font = ExtResource("4_l0je8")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxTexture_hrc23")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sdcdb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l0je8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_nbyti")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_8tcai")
+text = "Buy"
+script = ExtResource("6_8tcai")
+hover_pop = NodePath("../Pop")
+
+[node name="ButtonAction" type="Node" parent="Button" node_paths=PackedStringArray("root", "kaching", "animator")]
+script = ExtResource("7_e1oly")
+root = NodePath("../..")
+kaching = NodePath("../../Kaching")
+animator = NodePath("../../AnimationPlayer")
+
+[node name="PreviewIcon" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 65.0
+offset_right = 416.0
+offset_bottom = 321.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_iwk3p")
+
+[node name="Pop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_sdcdb")
+script = ExtResource("9_e1oly")
+
+[node name="Kaching" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_fcb1q")
+script = ExtResource("9_e1oly")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_b5rti")
+}

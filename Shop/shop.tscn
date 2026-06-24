@@ -1,0 +1,135 @@
+[gd_scene load_steps=23 format=3 uid="uid://dstf28io1wky1"]
+
+[ext_resource type="Texture2D" uid="uid://c4spwfa0pgi7e" path="res://bg.svg" id="1_3weqf"]
+[ext_resource type="Script" uid="uid://xsj422ctqcat" path="res://Shop/shop_scrollbar.gd" id="2_nunvh"]
+[ext_resource type="Script" uid="uid://bjecol521n58l" path="res://Shop/populate_shop.gd" id="2_qlv7h"]
+[ext_resource type="Texture2D" uid="uid://b4ujr2n1k620p" path="res://GUI/grabber.svg" id="2_u3phx"]
+[ext_resource type="PackedScene" uid="uid://cl7jk6mipxyfp" path="res://Shop/ShopItemPanel.tscn" id="3_6mmxm"]
+[ext_resource type="Texture2D" uid="uid://cy4jyjx83ba82" path="res://GUI/grabber_selected.svg" id="3_56y0i"]
+[ext_resource type="Script" uid="uid://r5hvtfskk2uo" path="res://GUI/grow_button_hover.gd" id="7_hfkrb"]
+[ext_resource type="Texture2D" uid="uid://fqf7efe633eu" path="res://GUI/home.png" id="8_7gdb2"]
+[ext_resource type="AudioStream" uid="uid://cw4jkbgqkkv0b" path="res://GUI/pop.ogg" id="9_7gdb2"]
+[ext_resource type="Script" uid="uid://0lr58bafwho6" path="res://Shop/home.gd" id="9_25km1"]
+[ext_resource type="Script" uid="uid://it315mkt23c3" path="res://GUI/play_pop.gd" id="10_buhfn"]
+[ext_resource type="FontFile" uid="uid://qbdgbrufbu4a" path="res://Font/Mocha Choco.otf" id="10_icvdq"]
+[ext_resource type="Script" uid="uid://bq886dpv0wd6y" path="res://Shop/gem_counter.gd" id="13_8sid2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56y0i"]
+bg_color = Color(0.8668179, 0.21031743, 0.48020822, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_56y0i"]
+texture = ExtResource("2_u3phx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3phx"]
+texture = ExtResource("3_56y0i")
+modulate_color = Color(0.9270958, 0.7912068, 0.9404326, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_so0yi"]
+texture = ExtResource("3_56y0i")
+modulate_color = Color(0.8705636, 0.41199455, 0.71411526, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_buhfn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25km1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_icvdq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8sid2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhfdn"]
+
+[node name="Root" type="Node"]
+
+[node name="Root2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Root2D"]
+position = Vector2(961, 540)
+texture = ExtResource("1_3weqf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HScrollBar" type="HScrollBar" parent="Control" node_paths=PackedStringArray("shop_panels")]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 966.0
+offset_right = 1906.0
+offset_bottom = 1067.0
+theme_override_styles/scroll = SubResource("StyleBoxFlat_56y0i")
+theme_override_styles/grabber = SubResource("StyleBoxTexture_56y0i")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_u3phx")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_so0yi")
+page = 14.065
+custom_step = 1.0
+script = ExtResource("2_nunvh")
+shop_panels = NodePath("../ShopPanels")
+
+[node name="ShopPanels" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 141.0
+offset_top = 159.0
+offset_right = 141.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_qlv7h")
+shop_item_panel = ExtResource("3_6mmxm")
+
+[node name="Button" type="Button" parent="Control" node_paths=PackedStringArray("hover_pop")]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 126.0
+offset_bottom = 124.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_buhfn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_25km1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_icvdq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8sid2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jhfdn")
+text = "Home"
+script = ExtResource("7_hfkrb")
+hover_pop = NodePath("../../Pop")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Button"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 105.0
+offset_bottom = 101.0
+texture = ExtResource("8_7gdb2")
+
+[node name="ButtonAction" type="Node" parent="Control/Button"]
+script = ExtResource("9_25km1")
+metadata/_custom_type_script = "uid://rdkv4681l4ie"
+
+[node name="Pop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_7gdb2")
+script = ExtResource("10_buhfn")
+
+[node name="Currency" type="RichTextLabel" parent="."]
+offset_left = 540.0
+offset_top = 31.0
+offset_right = 1905.0
+offset_bottom = 172.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_icvdq")
+theme_override_font_sizes/normal_font_size = 61
+bbcode_enabled = true
+text = "[right][img width=75]res://Collectable/Sprites/gem.svg[/img] 150 [/right]"
+fit_content = true
+script = ExtResource("13_8sid2")
+
+[connection signal="value_changed" from="Control/HScrollBar" to="Control/HScrollBar" method="_on_value_changed"]

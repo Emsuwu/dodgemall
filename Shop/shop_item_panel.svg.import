@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cigm2bnyo3o7p"
-path="res://.godot/imported/pan.svg-c97fc03574043f6d3f53091faa388d73.ctex"
+uid="uid://c841ggiwe3g54"
+path="res://.godot/imported/shop_item_panel.svg-d8708df5d89f4a1e1759d05d2fe4f69e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Skin/pan.svg"
-dest_files=["res://.godot/imported/pan.svg-c97fc03574043f6d3f53091faa388d73.ctex"]
+source_file="res://Shop/shop_item_panel.svg"
+dest_files=["res://.godot/imported/shop_item_panel.svg-d8708df5d89f4a1e1759d05d2fe4f69e.ctex"]
 
 [params]
 

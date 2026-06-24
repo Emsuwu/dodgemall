@@ -4,10 +4,21 @@ extends Button
 var tween : Tween
 var hovered : bool
 
+
+func _ready():
+	connect("button_down", _on_pressed)
+
+func _on_pressed() -> void:
+	for child in get_children():
+		if child is ButtonAction:
+			child._on_pressed()
+
 func _process(_delta):
 	if is_hovered():
-		if !hovered:
+		if !hovered && !disabled:
 			do_hover_effect()
+		if disabled:
+			do_unhover_effect()
 	else:
 		if hovered == true:
 			do_unhover_effect()
