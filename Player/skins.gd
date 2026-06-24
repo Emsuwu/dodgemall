@@ -23,10 +23,6 @@ static var skins : Dictionary[String, Dictionary] = {
 		"price" : 25,
 		"description" : "Genderfluid icon",
 		"icon": load("res://Player/Skin/genderfluid.svg")},
-	"lashes" : {
-		"price" : 25,
-		"description" : "lashes",
-		"icon": load("res://Player/Skin/lashes.svg")},
 	"lesbian" : {
 		"price" : 25,
 		"description" : "Lesbian icon",
@@ -39,10 +35,6 @@ static var skins : Dictionary[String, Dictionary] = {
 		"price" : 25,
 		"description" : "Pansexual icon",
 		"icon": load("res://Player/Skin/pansexual.svg")},
-	"pirate" : {
-		"price" : 25,
-		"description" : "Piracy is cool",
-		"icon": load("res://Player/Skin/pirate.svg")},
 	"queer" : {
 		"price" : 25,
 		"description" : "Queer icon",
@@ -51,13 +43,21 @@ static var skins : Dictionary[String, Dictionary] = {
 		"price" : 25,
 		"description" : "Trans icon",
 		"icon": load("res://Player/Skin/trans.svg")},
+	"pirate" : {
+		"price" : 50,
+		"description" : "Piracy is cool",
+		"icon": load("res://Player/Skin/pirate.svg")},
+	"lashes" : {
+		"price" : 50,
+		"description" : "lashes",
+		"icon": load("res://Player/Skin/lashes.svg")},
 	"mystery" : {
 		"price" : 50,
 		"description" : "really mysterious black hole bal what is it hiding??? we may never know but we can guess at least. does it suck?",
 		"icon": load("res://Player/Skin/mystery.svg")},
 	"patricia" : {
 		"price" : 75,
-		"description" : "jump guy",
+		"description" : "patricia",
 		"icon": load("res://Player/Skin/patricia.svg")},
 	"patrick" : {
 		"price" : 75,
