@@ -2,6 +2,15 @@ class_name Skins extends Node
 
 static var purchased_skins : Array[String] = ["default"]
 
+static func unlock_all_skins() -> void:
+	Skins.purchased_skins.clear()
+	for skin : String in Skins.skins.keys():
+		Skins.purchased_skins.append(skin)
+
+static func get_icon(icon_name : String):
+	print(typeof(skins[icon_name]["icon"]))
+	return skins[icon_name]["icon"]
+
 static var skins : Dictionary[String, Dictionary] = {
 	"default" : {
 		"price" : 0,

@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://bnl6b57otbvj1"]
+
+[ext_resource type="Texture2D" uid="uid://cr5r8yx5kxno5" path="res://wardrobe/icon_background.svg" id="1_slf2m"]
+[ext_resource type="Script" uid="uid://fckk1g0mh4mk" path="res://wardrobe/wardrobe_item.gd" id="1_yfeix"]
+[ext_resource type="Texture2D" uid="uid://bq6gtxw7ute3x" path="res://Player/Skin/default.svg" id="2_vselk"]
+[ext_resource type="Texture2D" uid="uid://bcbm5bhjbnnho" path="res://wardrobe/icon_background_selection.svg" id="3_t4oly"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vselk"]
+texture = ExtResource("1_slf2m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4oly"]
+texture = ExtResource("3_t4oly")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7f2nj"]
+texture = ExtResource("3_t4oly")
+modulate_color = Color(0.9514074, 0.8826772, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfeix"]
+texture = ExtResource("3_t4oly")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4oly"]
+
+[node name="WardrobeItem" type="Control" node_paths=PackedStringArray("icon")]
+layout_mode = 3
+anchor_right = 0.135
+anchor_bottom = 0.24100001
+offset_right = 0.7999878
+offset_bottom = -0.27999878
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yfeix")
+icon = NodePath("Panel/Icon")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 259.0
+offset_bottom = 259.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vselk")
+
+[node name="Icon" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 210.0
+offset_bottom = 210.0
+texture = ExtResource("2_vselk")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_right = 259.0
+offset_bottom = 261.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_t4oly")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7f2nj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yfeix")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t4oly")

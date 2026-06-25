@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://r5hvtfskk2uo" path="res://GUI/grow_button_hover.gd" id="7_hfkrb"]
 [ext_resource type="Texture2D" uid="uid://fqf7efe633eu" path="res://GUI/home.png" id="8_7gdb2"]
 [ext_resource type="AudioStream" uid="uid://cw4jkbgqkkv0b" path="res://GUI/pop.ogg" id="9_7gdb2"]
-[ext_resource type="Script" uid="uid://0lr58bafwho6" path="res://Shop/home.gd" id="9_25km1"]
+[ext_resource type="Script" uid="uid://b03ancytw67iq" path="res://General/switch_button_action.gd" id="9_8sid2"]
 [ext_resource type="Script" uid="uid://it315mkt23c3" path="res://GUI/play_pop.gd" id="10_buhfn"]
 [ext_resource type="FontFile" uid="uid://qbdgbrufbu4a" path="res://Font/Mocha Choco.otf" id="10_icvdq"]
 [ext_resource type="Script" uid="uid://bq886dpv0wd6y" path="res://Shop/gem_counter.gd" id="13_8sid2"]
@@ -111,9 +111,10 @@ offset_right = 105.0
 offset_bottom = 101.0
 texture = ExtResource("8_7gdb2")
 
-[node name="ButtonAction" type="Node" parent="Control/Button"]
-script = ExtResource("9_25km1")
-metadata/_custom_type_script = "uid://rdkv4681l4ie"
+[node name="SwitchSceneButtonAction" type="Node" parent="Control/Button"]
+script = ExtResource("9_8sid2")
+scene_name = "res://Home/home.tscn"
+metadata/_custom_type_script = "uid://b03ancytw67iq"
 
 [node name="Pop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_7gdb2")

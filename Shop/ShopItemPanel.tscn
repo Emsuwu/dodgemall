@@ -45,6 +45,21 @@ modulate_color = Color(0.32544088, 0.3254409, 0.32544088, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwk3p"]
 texture = ExtResource("6_nbyti")
 
+[sub_resource type="Animation" id="Animation_b5rti"]
+resource_name = "FailPurchase"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1.5157169, 1.5157169),
+"update": 0,
+"values": [Color(1, 0.47981876, 0.48153907, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_fcb1q"]
 resource_name = "Purchase"
 tracks/0/type = "value"
@@ -73,21 +88,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_b5rti"]
-resource_name = "FailPurchase"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33333334),
-"transitions": PackedFloat32Array(1.5157169, 1.5157169),
-"update": 0,
-"values": [Color(1, 0.47981876, 0.48153907, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b5rti"]

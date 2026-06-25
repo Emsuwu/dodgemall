@@ -11,7 +11,11 @@ class_name Player extends Node2D
 @export var graze_sprite : Sprite2D
 @export var graze_animator : AnimationPlayer
 
+signal on_game_over
+
+static var new_hiscore : bool
 static var score : float
+static var instance : Player
 
 var is_dead : bool
 var velocity: Vector2
@@ -19,7 +23,11 @@ const BASE_SPEED : float = 60
 const DRAG : float = 0.9
 const RATE_OF_SIZE_CHANGE : float = .01
 
+func _init():
+	instance = self
+
 func _ready():
+	new_hiscore = false
 	score = 0
 
 func change_size(amount : float) -> void:
@@ -37,6 +45,11 @@ func _process(delta) -> void:
 	do_movement(delta)
 	gradually_increase_size(delta)
 	score += delta
+
+	if Input.is_action_just_pressed("debug_increase_score"):
+		score += 100
+	if Input.is_action_just_pressed("debug_decrease_score"):
+		score -= 100
 
 func gradually_increase_size(delta : float) -> void:
 	if get_size() >= 2: return
@@ -71,6 +84,11 @@ func do_debug_keys(delta : float) -> void:
 func on_death() -> void:
 	if is_dead: return
 	score -= 5
+	if Stats.hi_score <= score:
+		Stats.hi_score = score
+		new_hiscore = true
+	on_game_over.emit()
+	
 	sprite.hide()
 	print("death")
 	is_dead = true

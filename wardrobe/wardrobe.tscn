@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0seaf7mm8yn"]
+
+[ext_resource type="Script" uid="uid://8wktjdtkvwli" path="res://wardrobe/populate_grid.gd" id="1_th76p"]
+[ext_resource type="PackedScene" uid="uid://bnl6b57otbvj1" path="res://wardrobe/wardrobe_item.tscn" id="2_d3ljq"]
+[ext_resource type="Script" uid="uid://r5hvtfskk2uo" path="res://GUI/grow_button_hover.gd" id="3_b6lv8"]
+[ext_resource type="Texture2D" uid="uid://fqf7efe633eu" path="res://GUI/home.png" id="4_cmi1b"]
+[ext_resource type="Script" uid="uid://bj0vsf2j5b1g5" path="res://wardrobe/button_action_home.gd" id="5_b6lv8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a65nc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxoun"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1sr87"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe67s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6po6c"]
+
+[node name="Wardrobe" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 147.0
+offset_right = 1703.0
+offset_bottom = 909.0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 300
+theme_override_constants/v_separation = 300
+columns = 5
+script = ExtResource("1_th76p")
+wardrobe_item = ExtResource("2_d3ljq")
+
+[node name="Button" type="Button" parent="." node_paths=PackedStringArray("hover_pop")]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 126.0
+offset_bottom = 124.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a65nc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mxoun")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1sr87")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fe67s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6po6c")
+text = "Home"
+script = ExtResource("3_b6lv8")
+hover_pop = NodePath("")
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 105.0
+offset_bottom = 101.0
+texture = ExtResource("4_cmi1b")
+
+[node name="ButtonAction" type="Node" parent="Button"]
+script = ExtResource("5_b6lv8")
+metadata/_custom_type_script = "uid://rdkv4681l4ie"
