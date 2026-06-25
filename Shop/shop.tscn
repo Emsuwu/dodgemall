@@ -57,6 +57,21 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Title" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 8.0
+offset_right = 1392.0
+offset_bottom = 172.0
+theme_override_colors/default_color = Color(0.8666667, 0.21176471, 0.47843137, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 35
+theme_override_fonts/normal_font = ExtResource("10_icvdq")
+theme_override_font_sizes/normal_font_size = 116
+bbcode_enabled = true
+text = "[center][wave]Dodge Mall"
+fit_content = true
+
 [node name="HScrollBar" type="HScrollBar" parent="Control" node_paths=PackedStringArray("shop_panels")]
 layout_mode = 0
 offset_left = 11.0
@@ -77,10 +92,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 141.0
-offset_top = 159.0
-offset_right = 141.0
-offset_bottom = 159.0
+offset_left = 123.0
+offset_top = 223.0
+offset_right = 123.0
+offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_qlv7h")

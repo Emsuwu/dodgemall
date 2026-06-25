@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://cc2bu4tml4pli"]
+[gd_scene load_steps=33 format=3 uid="uid://cc2bu4tml4pli"]
 
 [ext_resource type="Texture2D" uid="uid://c4spwfa0pgi7e" path="res://bg.svg" id="1_c25vv"]
+[ext_resource type="Script" uid="uid://dxbblrx4eqcs4" path="res://Home/home.gd" id="1_ypuaw"]
 [ext_resource type="Texture2D" uid="uid://c8mtixyk282gu" path="res://Shop/shop_item_purchase_button.svg" id="4_ksrva"]
 [ext_resource type="Script" uid="uid://yqsp4wrujegv" path="res://Home/play_button.gd" id="6_3i2y8"]
 [ext_resource type="PackedScene" uid="uid://cmhyvwfpih26s" path="res://game_scene.tscn" id="7_3i2y8"]
@@ -11,7 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://cw4jkbgqkkv0b" path="res://GUI/pop.ogg" id="10_1dp2h"]
 [ext_resource type="Script" uid="uid://it315mkt23c3" path="res://GUI/play_pop.gd" id="11_eo1cm"]
 [ext_resource type="FontFile" uid="uid://qbdgbrufbu4a" path="res://Font/Mocha Choco.otf" id="12_vkr2j"]
+[ext_resource type="Texture2D" uid="uid://bpdt3npauo3m" path="res://GUI/music_slider.svg" id="13_c25vv"]
 [ext_resource type="Script" uid="uid://bq886dpv0wd6y" path="res://Shop/gem_counter.gd" id="13_f5c8t"]
+[ext_resource type="AudioStream" uid="uid://cbo54ql2pkjww" path="res://Dodgemall.ogg" id="14_4aa33"]
+[ext_resource type="Script" uid="uid://dfeifrionvx5m" path="res://Home/music_slider.gd" id="14_kiy3n"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_26pbl"]
 texture = ExtResource("4_ksrva")
@@ -84,7 +88,96 @@ _data = {
 &"wardrobe->home": SubResource("Animation_c25vv")
 }
 
+[sub_resource type="Animation" id="Animation_1wc4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_snaye"]
+resource_name = "fade_out_music"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 2.928171),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_4aa33"]
+resource_name = "fade_in_music"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(2.928171, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78j2m"]
+_data = {
+&"RESET": SubResource("Animation_1wc4g"),
+&"fade_in_music": SubResource("Animation_4aa33"),
+&"fade_out_music": SubResource("Animation_snaye")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w74i3"]
+bg_color = Color(0.72971165, 0.3251839, 0.5478257, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kiy3n"]
+bg_color = Color(1, 0.33980274, 0.30597287, 1)
+border_width_left = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_top = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypuaw"]
+bg_color = Color(1, 0.33980274, 0.30597287, 1)
+border_width_left = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_top = 15.0
+expand_margin_bottom = 15.0
+
 [node name="Root" type="Node"]
+script = ExtResource("1_ypuaw")
 metadata/_edit_vertical_guides_ = [960.0]
 
 [node name="Root2D" type="Node2D" parent="."]
@@ -98,6 +191,21 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1914.0
 offset_bottom = 1069.0
+
+[node name="Title" type="RichTextLabel" parent="RootControl"]
+layout_mode = 0
+offset_left = 661.0
+offset_top = 7.0
+offset_right = 1259.0
+offset_bottom = 323.0
+theme_override_colors/default_color = Color(0.8666667, 0.21176471, 0.47843137, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 35
+theme_override_fonts/normal_font = ExtResource("12_vkr2j")
+theme_override_font_sizes/normal_font_size = 116
+bbcode_enabled = true
+text = "[center][wave]Dodge 'Em All"
+fit_content = true
 
 [node name="Currency" type="RichTextLabel" parent="RootControl"]
 layout_mode = 0
@@ -162,7 +270,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_6b04u")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w74i3")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_c25vv")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_kiy3n")
-text = "Dodge Mall"
+text = "Shop"
 script = ExtResource("7_op3wl")
 hover_pop = NodePath("../../Pop")
 
@@ -221,5 +329,39 @@ libraries = {
 [node name="Pop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_1dp2h")
 script = ExtResource("11_eo1cm")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_4aa33")
+bus = &"Music"
+
+[node name="FadeOutMusic" type="AnimationPlayer" parent="Music"]
+libraries = {
+&"": SubResource("AnimationLibrary_78j2m")
+}
+
+[node name="MusicSlider" type="HSlider" parent="." node_paths=PackedStringArray("music", "music_animator")]
+offset_left = 1409.0
+offset_top = 961.0
+offset_right = 1875.0
+offset_bottom = 1052.0
+mouse_default_cursor_shape = 2
+theme_override_constants/center_grabber = 0
+theme_override_constants/grabber_offset = 0
+theme_override_constants/tick_offset = 0
+theme_override_icons/grabber = ExtResource("13_c25vv")
+theme_override_icons/grabber_highlight = ExtResource("13_c25vv")
+theme_override_icons/grabber_disabled = ExtResource("13_c25vv")
+theme_override_styles/slider = SubResource("StyleBoxFlat_w74i3")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kiy3n")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ypuaw")
+max_value = 1.2
+step = 0.0
+value = 0.5
+script = ExtResource("14_kiy3n")
+music = NodePath("../Music")
+music_animator = NodePath("../Music/FadeOutMusic")
+
+[connection signal="drag_ended" from="MusicSlider" to="MusicSlider" method="_on_drag_ended"]
+[connection signal="drag_started" from="MusicSlider" to="MusicSlider" method="_on_drag_started"]
 
 [editable path="RootControl/Wardrobe"]

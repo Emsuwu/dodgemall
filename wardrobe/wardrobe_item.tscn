@@ -8,8 +8,7 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vselk"]
 texture = ExtResource("1_slf2m")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4oly"]
-texture = ExtResource("3_t4oly")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yfeix"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7f2nj"]
 texture = ExtResource("3_t4oly")
@@ -51,7 +50,9 @@ layout_mode = 0
 offset_right = 259.0
 offset_bottom = 261.0
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_t4oly")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yfeix")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7f2nj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_yfeix")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t4oly")
+
+[connection signal="button_down" from="Panel/Button" to="." method="_on_button_button_down"]

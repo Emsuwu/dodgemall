@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://don858eg3vhhb"]
 
-[ext_resource type="Texture2D" uid="uid://ce16d5kbxvlss" path="res://Player/Skin/trans.svg" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://duk6eqkg5hhjt" path="res://Player/player.gd" id="2_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://bq6gtxw7ute3x" path="res://Player/Skin/default.svg" id="2_k53q1"]
 [ext_resource type="AudioStream" uid="uid://cslwkcjebh722" path="res://Player/graze.wav" id="3_gwnis"]
 [ext_resource type="Script" uid="uid://ds6fo7hbpprjc" path="res://audio_stream_randomizer.gd" id="4_k53q1"]
 [ext_resource type="Texture2D" uid="uid://dqwa6bngrao7f" path="res://Player/player_outline.svg" id="5_k53q1"]
@@ -35,6 +35,33 @@ color_ramp = SubResource("GradientTexture1D_btcbx")
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ntmi"]
 radius = 110.0
 
+[sub_resource type="Animation" id="Animation_fhl08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.22, 0.22)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_k53q1"]
 resource_name = "graze"
 length = 0.3
@@ -63,33 +90,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_fhl08"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.22, 0.22)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vtle1"]
 _data = {
 &"RESET": SubResource("Animation_fhl08"),
@@ -108,7 +108,7 @@ graze_animator = NodePath("GrazeOutline/AnimationPlayer")
 
 [node name="Player" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_l8h54")
+texture = ExtResource("2_k53q1")
 
 [node name="DeathArea" type="Area2D" parent="." groups=["player"]]
 scale = Vector2(0.2, 0.2)

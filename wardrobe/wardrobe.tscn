@@ -26,10 +26,10 @@ grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 147.0
-offset_right = 1703.0
-offset_bottom = 909.0
+offset_left = 212.0
+offset_top = 150.0
+offset_right = 1797.0
+offset_bottom = 912.0
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
 layout_mode = 2

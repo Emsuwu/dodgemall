@@ -2,13 +2,25 @@ class_name Skins extends Node
 
 static var purchased_skins : Array[String] = ["default"]
 
+static var default_icon:
+	get:
+		return skins["default"]["icon"]
+
+static func unlock_skin(skin_name : String) -> bool:
+	if skin_name in skins.keys() and not skin_name in purchased_skins:
+		purchased_skins.append(skin_name)
+		GameSaver.savedata.unlocked_skins = purchased_skins
+		GameSaver.save()
+		return true
+	else:
+		return false
+
 static func unlock_all_skins() -> void:
 	Skins.purchased_skins.clear()
 	for skin : String in Skins.skins.keys():
 		Skins.purchased_skins.append(skin)
 
 static func get_icon(icon_name : String):
-	print(typeof(skins[icon_name]["icon"]))
 	return skins[icon_name]["icon"]
 
 static var skins : Dictionary[String, Dictionary] = {

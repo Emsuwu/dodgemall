@@ -22,6 +22,7 @@ func _on_pressed():
 		animator.play("Purchase")
 		Skins.purchased_skins.append(root.icon_name)
 		set_as_purchased()
+		GameSaver.save()
 	else:
 		fail_purchase()
 

@@ -12,8 +12,12 @@ func appear():
 	show()
 	music_animator.play("fade_out_music")
 	animation_player.play("game_over_pop_in")
-
 	effects()
+
+	call_deferred("save")
+
+func save() -> void:
+	GameSaver.save()
 
 func effects() -> void:
 	var text: String = death_messages[randi_range(0, death_messages.size()-1)]

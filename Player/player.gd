@@ -13,6 +13,8 @@ class_name Player extends Node2D
 
 signal on_game_over
 
+static var current_skin_name : String
+static var current_icon = null
 static var new_hiscore : bool
 static var score : float
 static var instance : Player
@@ -26,9 +28,18 @@ const RATE_OF_SIZE_CHANGE : float = .01
 func _init():
 	instance = self
 
+static func set_current_icon(icon : String) -> void:
+	current_skin_name = icon
+	current_icon = Skins.get_icon(icon)
+	GameSaver.savedata.selected_skin = current_skin_name
+	GameSaver.save()
+
 func _ready():
+	if current_icon == null:
+		current_icon = Skins.default_icon
 	new_hiscore = false
 	score = 0
+	sprite.texture = current_icon
 
 func change_size(amount : float) -> void:
 	scale.x += amount
