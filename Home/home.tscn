@@ -103,21 +103,6 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_snaye"]
-resource_name = "fade_out_music"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 2.928171),
-"update": 0,
-"values": [0.0, -80.0]
-}
-
 [sub_resource type="Animation" id="Animation_4aa33"]
 resource_name = "fade_in_music"
 tracks/0/type = "value"
@@ -131,6 +116,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(2.928171, 1),
 "update": 0,
 "values": [-80.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_snaye"]
+resource_name = "fade_out_music"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 2.928171),
+"update": 0,
+"values": [0.0, -80.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_78j2m"]
