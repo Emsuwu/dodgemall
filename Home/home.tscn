@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cc2bu4tml4pli"]
+[gd_scene format=3 uid="uid://cc2bu4tml4pli"]
 
 [ext_resource type="Texture2D" uid="uid://c4spwfa0pgi7e" path="res://bg.svg" id="1_c25vv"]
 [ext_resource type="Script" uid="uid://dxbblrx4eqcs4" path="res://Home/home.gd" id="1_ypuaw"]
@@ -176,23 +176,23 @@ corner_radius_bottom_left = 15
 expand_margin_top = 15.0
 expand_margin_bottom = 15.0
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" unique_id=358757809]
 script = ExtResource("1_ypuaw")
 metadata/_edit_vertical_guides_ = [960.0]
 
-[node name="Root2D" type="Node2D" parent="."]
+[node name="Root2D" type="Node2D" parent="." unique_id=1280099987]
 
-[node name="Sprite2D" type="Sprite2D" parent="Root2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Root2D" unique_id=1972584583]
 position = Vector2(961, 540)
 texture = ExtResource("1_c25vv")
 
-[node name="RootControl" type="Control" parent="."]
+[node name="RootControl" type="Control" parent="." unique_id=447968358]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1914.0
 offset_bottom = 1069.0
 
-[node name="Title" type="RichTextLabel" parent="RootControl"]
+[node name="Title" type="RichTextLabel" parent="RootControl" unique_id=480513110]
 layout_mode = 0
 offset_left = 661.0
 offset_top = 7.0
@@ -207,7 +207,7 @@ bbcode_enabled = true
 text = "[center][wave]Dodge 'Em All"
 fit_content = true
 
-[node name="Currency" type="RichTextLabel" parent="RootControl"]
+[node name="Currency" type="RichTextLabel" parent="RootControl" unique_id=2013272164]
 layout_mode = 0
 offset_left = 540.0
 offset_top = 31.0
@@ -221,7 +221,7 @@ text = "[right][img width=75]res://Collectable/Sprites/gem.svg[/img] 150 [/right
 fit_content = true
 script = ExtResource("13_f5c8t")
 
-[node name="Play" type="Button" parent="RootControl" node_paths=PackedStringArray("hover_pop")]
+[node name="Play" type="Button" parent="RootControl" unique_id=276673277 node_paths=PackedStringArray("hover_pop")]
 layout_mode = 0
 offset_left = 707.0
 offset_top = 360.0
@@ -245,12 +245,12 @@ text = "Play"
 script = ExtResource("7_op3wl")
 hover_pop = NodePath("../../Pop")
 
-[node name="ButtonAction" type="Node" parent="RootControl/Play"]
+[node name="ButtonAction" type="Node" parent="RootControl/Play" unique_id=1628603096]
 script = ExtResource("6_3i2y8")
 game_scene = ExtResource("7_3i2y8")
 metadata/_custom_type_script = "uid://rdkv4681l4ie"
 
-[node name="Shop" type="Button" parent="RootControl" node_paths=PackedStringArray("hover_pop")]
+[node name="Shop" type="Button" parent="RootControl" unique_id=1163271914 node_paths=PackedStringArray("hover_pop")]
 layout_mode = 0
 offset_left = 707.0
 offset_top = 490.0
@@ -274,12 +274,12 @@ text = "Shop"
 script = ExtResource("7_op3wl")
 hover_pop = NodePath("../../Pop")
 
-[node name="SwitchSceneButtonAction" type="Node" parent="RootControl/Shop"]
+[node name="SwitchSceneButtonAction" type="Node" parent="RootControl/Shop" unique_id=1165104683]
 script = ExtResource("8_26pbl")
 scene_name = "res://Shop/shop.tscn"
 metadata/_custom_type_script = "uid://rdkv4681l4ie"
 
-[node name="Shop2" type="Button" parent="RootControl" node_paths=PackedStringArray("hover_pop")]
+[node name="Shop2" type="Button" parent="RootControl" unique_id=1085865710 node_paths=PackedStringArray("hover_pop")]
 layout_mode = 0
 offset_left = 707.0
 offset_top = 621.0
@@ -303,12 +303,12 @@ text = "Wardrobe"
 script = ExtResource("7_op3wl")
 hover_pop = NodePath("../../Pop")
 
-[node name="ButtonAction" type="Node" parent="RootControl/Shop2" node_paths=PackedStringArray("animator")]
+[node name="ButtonAction" type="Node" parent="RootControl/Shop2" unique_id=339233774 node_paths=PackedStringArray("animator")]
 script = ExtResource("9_w74i3")
 animator = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://rdkv4681l4ie"
 
-[node name="Wardrobe" parent="RootControl" instance=ExtResource("9_6b04u")]
+[node name="Wardrobe" parent="RootControl" unique_id=888276308 instance=ExtResource("9_6b04u")]
 layout_mode = 1
 offset_left = 1933.0
 offset_top = 8.0
@@ -321,25 +321,21 @@ hover_pop = NodePath("../../../Pop")
 [node name="ButtonAction" parent="RootControl/Wardrobe/Button" index="1" node_paths=PackedStringArray("animator")]
 animator = NodePath("../../../AnimationPlayer")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="RootControl"]
-libraries = {
-&"": SubResource("AnimationLibrary_c25vv")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RootControl" unique_id=2140444494]
+libraries/ = SubResource("AnimationLibrary_c25vv")
 
-[node name="Pop" type="AudioStreamPlayer" parent="."]
+[node name="Pop" type="AudioStreamPlayer" parent="." unique_id=2118459395]
 stream = ExtResource("10_1dp2h")
 script = ExtResource("11_eo1cm")
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=951241475]
 stream = ExtResource("14_4aa33")
 bus = &"Music"
 
-[node name="FadeOutMusic" type="AnimationPlayer" parent="Music"]
-libraries = {
-&"": SubResource("AnimationLibrary_78j2m")
-}
+[node name="FadeOutMusic" type="AnimationPlayer" parent="Music" unique_id=1904928503]
+libraries/ = SubResource("AnimationLibrary_78j2m")
 
-[node name="MusicSlider" type="HSlider" parent="." node_paths=PackedStringArray("music", "music_animator")]
+[node name="MusicSlider" type="HSlider" parent="." unique_id=2008415420 node_paths=PackedStringArray("music", "music_animator")]
 offset_left = 1409.0
 offset_top = 961.0
 offset_right = 1875.0
