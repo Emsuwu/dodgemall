@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cmhyvwfpih26s"]
+[gd_scene format=3 uid="uid://cmhyvwfpih26s"]
 
 [ext_resource type="PackedScene" uid="uid://don858eg3vhhb" path="res://Player/player.tscn" id="1_mlf6e"]
 [ext_resource type="Texture2D" uid="uid://c4spwfa0pgi7e" path="res://bg.svg" id="2_po0ka"]
@@ -114,19 +114,20 @@ _data = {
 &"fade_out_music": SubResource("Animation_snaye")
 }
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" unique_id=533820195]
 
-[node name="Root2D" type="Node2D" parent="."]
+[node name="Root2D" type="Node2D" parent="." unique_id=1694134432]
 
-[node name="Background" type="Sprite2D" parent="Root2D"]
+[node name="Background" type="Sprite2D" parent="Root2D" unique_id=92963086]
+self_modulate = Color(0.44257864, 0.7465028, 1, 1)
 position = Vector2(961, 539)
 texture = ExtResource("2_po0ka")
 
-[node name="Player" parent="Root2D" node_paths=PackedStringArray("game_over_ui") instance=ExtResource("1_mlf6e")]
+[node name="Player" parent="Root2D" unique_id=852195628 node_paths=PackedStringArray("game_over_ui") instance=ExtResource("1_mlf6e")]
 position = Vector2(960, 540)
 game_over_ui = NodePath("../../GameOverUI")
 
-[node name="WeaponSpawner" type="Node2D" parent="Root2D" node_paths=PackedStringArray("spawn_top_left", "spawn_top_right", "spawn_timer")]
+[node name="WeaponSpawner" type="Node2D" parent="Root2D" unique_id=2134140811 node_paths=PackedStringArray("spawn_top_left", "spawn_top_right", "spawn_timer")]
 script = ExtResource("3_v1wow")
 min_spawn_rate = 0.242
 max_spawn_rate = 0.78
@@ -136,21 +137,21 @@ spawn_top_left = NodePath("SpawnTopLeft")
 spawn_top_right = NodePath("SpawnBottomRight")
 spawn_timer = NodePath("SpawnTimer")
 
-[node name="SpawnTopLeft" type="Node2D" parent="Root2D/WeaponSpawner"]
+[node name="SpawnTopLeft" type="Node2D" parent="Root2D/WeaponSpawner" unique_id=366873767]
 position = Vector2(-394, -5)
 
-[node name="SpawnBottomRight" type="Node2D" parent="Root2D/WeaponSpawner"]
+[node name="SpawnBottomRight" type="Node2D" parent="Root2D/WeaponSpawner" unique_id=1977698751]
 position = Vector2(2151, 1080)
 
-[node name="SpawnTimer" type="Timer" parent="Root2D/WeaponSpawner"]
+[node name="SpawnTimer" type="Timer" parent="Root2D/WeaponSpawner" unique_id=279646213]
 
-[node name="WeaponDespawnZone" parent="Root2D" instance=ExtResource("23_nuflt")]
+[node name="WeaponDespawnZone" parent="Root2D" unique_id=1308245980 instance=ExtResource("23_nuflt")]
 position = Vector2(-1082, -71)
 
-[node name="WeaponDespawnZone2" parent="Root2D" instance=ExtResource("23_nuflt")]
+[node name="WeaponDespawnZone2" parent="Root2D" unique_id=1048407259 instance=ExtResource("23_nuflt")]
 position = Vector2(3413, -71)
 
-[node name="GameOverUI" type="Control" parent="." node_paths=PackedStringArray("death_message", "music", "music_animator")]
+[node name="GameOverUI" type="Control" parent="." unique_id=1484951746 node_paths=PackedStringArray("death_message", "music", "music_animator")]
 visible = false
 layout_mode = 3
 anchors_preset = 8
@@ -171,7 +172,7 @@ death_message = NodePath("DeathMessage")
 music = NodePath("../Music")
 music_animator = NodePath("../Music/FadeOutMusic")
 
-[node name="ColorRect" type="ColorRect" parent="GameOverUI"]
+[node name="ColorRect" type="ColorRect" parent="GameOverUI" unique_id=1950200880]
 layout_mode = 0
 offset_left = -60.0
 offset_top = 186.0
@@ -180,7 +181,7 @@ offset_bottom = 894.0
 pivot_offset = Vector2(358.375, 127.95)
 color = Color(0, 0, 0, 0.7019608)
 
-[node name="Medal" type="RichTextLabel" parent="GameOverUI"]
+[node name="Medal" type="RichTextLabel" parent="GameOverUI" unique_id=301085312]
 layout_mode = 0
 offset_left = 972.0
 offset_top = 440.0
@@ -197,7 +198,7 @@ text = " [img width=90]res://Collectable/Sprites/gem.svg[/img] 150
  "
 script = ExtResource("13_f54l4")
 
-[node name="Scores" type="RichTextLabel" parent="GameOverUI"]
+[node name="Scores" type="RichTextLabel" parent="GameOverUI" unique_id=710361664]
 layout_mode = 0
 offset_left = -36.0
 offset_top = 444.0
@@ -214,7 +215,7 @@ text = "[right]Score:[/right] 0
 "
 script = ExtResource("13_if5p2")
 
-[node name="DeathMessage" type="RichTextLabel" parent="GameOverUI"]
+[node name="DeathMessage" type="RichTextLabel" parent="GameOverUI" unique_id=907982506]
 layout_mode = 0
 offset_top = 351.0
 offset_right = 1920.0
@@ -227,7 +228,7 @@ theme_override_font_sizes/normal_font_size = 71
 bbcode_enabled = true
 text = "[center]You died[/center]"
 
-[node name="GameOver" type="RichTextLabel" parent="GameOverUI"]
+[node name="GameOver" type="RichTextLabel" parent="GameOverUI" unique_id=1821654687]
 layout_mode = 0
 offset_top = 222.0
 offset_right = 1923.0
@@ -240,7 +241,7 @@ theme_override_font_sizes/normal_font_size = 121
 bbcode_enabled = true
 text = "[center]Game Over[/center]"
 
-[node name="Retry" type="Button" parent="GameOverUI" node_paths=PackedStringArray("hover_pop")]
+[node name="Retry" type="Button" parent="GameOverUI" unique_id=936400120 node_paths=PackedStringArray("hover_pop")]
 layout_mode = 0
 offset_left = 459.0
 offset_top = 698.0
@@ -259,7 +260,7 @@ text = "      Retry"
 script = ExtResource("11_j5hk1")
 hover_pop = NodePath("../HoverPop")
 
-[node name="TextureRect" type="TextureRect" parent="GameOverUI/Retry"]
+[node name="TextureRect" type="TextureRect" parent="GameOverUI/Retry" unique_id=1590082918]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 53.0
@@ -268,7 +269,7 @@ offset_right = 135.0
 offset_bottom = 106.0
 texture = ExtResource("13_bpcsf")
 
-[node name="Home" type="Button" parent="GameOverUI" node_paths=PackedStringArray("hover_pop")]
+[node name="Home" type="Button" parent="GameOverUI" unique_id=2032502755 node_paths=PackedStringArray("hover_pop")]
 layout_mode = 0
 offset_left = 983.0
 offset_top = 698.0
@@ -287,7 +288,7 @@ text = "      Home"
 script = ExtResource("11_j5hk1")
 hover_pop = NodePath("../HoverPop")
 
-[node name="TextureRect" type="TextureRect" parent="GameOverUI/Home"]
+[node name="TextureRect" type="TextureRect" parent="GameOverUI/Home" unique_id=1004743293]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 46.0
@@ -296,35 +297,31 @@ offset_right = 146.0
 offset_bottom = 110.0
 texture = ExtResource("13_opqoc")
 
-[node name="ButtonAction" type="Node" parent="GameOverUI/Home"]
+[node name="ButtonAction" type="Node" parent="GameOverUI/Home" unique_id=272215515]
 script = ExtResource("17_nuflt")
 metadata/_custom_type_script = "uid://rdkv4681l4ie"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameOverUI"]
-libraries = {
-&"": SubResource("AnimationLibrary_j5hk1")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameOverUI" unique_id=546049432]
+libraries/ = SubResource("AnimationLibrary_j5hk1")
 
-[node name="HoverPop" type="AudioStreamPlayer" parent="GameOverUI"]
+[node name="HoverPop" type="AudioStreamPlayer" parent="GameOverUI" unique_id=258220643]
 stream = ExtResource("12_ueiaa")
 script = ExtResource("13_daj04")
 
-[node name="GameOverAudio" type="AudioStreamPlayer" parent="."]
+[node name="GameOverAudio" type="AudioStreamPlayer" parent="." unique_id=685621299]
 stream = ExtResource("17_1wc4g")
 script = ExtResource("17_3d2pr")
 _wahwahwahwah = ExtResource("18_h5hfs")
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=133288277]
 stream = ExtResource("19_snaye")
 autoplay = true
 bus = &"Music"
 
-[node name="FadeOutMusic" type="AnimationPlayer" parent="Music"]
-libraries = {
-&"": SubResource("AnimationLibrary_78j2m")
-}
+[node name="FadeOutMusic" type="AnimationPlayer" parent="Music" unique_id=1941710718]
+libraries/ = SubResource("AnimationLibrary_78j2m")
 
-[node name="ScoreCounter" type="RichTextLabel" parent="."]
+[node name="ScoreCounter" type="RichTextLabel" parent="." unique_id=778197286]
 offset_left = 9.0
 offset_top = 47.0
 offset_right = 1912.0

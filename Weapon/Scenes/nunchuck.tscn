@@ -1,18 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b84lytcxolu6g"]
+[gd_scene format=3 uid="uid://b84lytcxolu6g"]
 
 [ext_resource type="Script" uid="uid://vtwo3o0rgbyy" path="res://Weapon/weapon.gd" id="1_vjli5"]
 [ext_resource type="Texture2D" uid="uid://daenx75rmx5ri" path="res://Weapon/Sprites/nunchuk.svg" id="2_qo5m6"]
 
-[node name="Nunchuck" type="Node2D"]
+[node name="Nunchuck" type="Node2D" unique_id=495772507]
 script = ExtResource("1_vjli5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=36688326]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_qo5m6")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=368734019]
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1487433402]
+visible = false
 polygon = PackedVector2Array(-166, -53, -38, -53, -37, -61, -4, -61, 20, -56, 42, -42, 64, -17, 59, -13, 151, 77, 167, 61, 76, -30, 72, -26, 65, -29, 46, -47, 22, -61, -5, -67, -37, -70, -38, -78, -166, -78, -167, -75, -167, -56)

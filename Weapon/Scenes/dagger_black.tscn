@@ -1,21 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsfg0fxtgsg5t"]
+[gd_scene format=3 uid="uid://dsfg0fxtgsg5t"]
 
 [ext_resource type="Script" uid="uid://vtwo3o0rgbyy" path="res://Weapon/weapon.gd" id="1_dylcr"]
 [ext_resource type="Texture2D" uid="uid://bxf2agcvkpubx" path="res://Weapon/Sprites/dagger_black.svg" id="2_dylcr"]
 
-[node name="Dagger" type="Node2D"]
+[node name="Dagger" type="Node2D" unique_id=1601714167]
 scale = Vector2(0.515, 0.515)
 script = ExtResource("1_dylcr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=983143549]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_dylcr")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1846860832]
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1918853711]
+visible = false
 polygon = PackedVector2Array(-133, 0, -132, -15, -55, -15, -58, -46, -25, -21, -26, -15, 134, -1, -29, 14, -25, 46, -48, 30, -51, 13, -131, 14)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
