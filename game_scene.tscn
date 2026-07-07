@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmhyvwfpih26s"]
 
+[ext_resource type="Texture2D" uid="uid://d07pc60rpmjf6" path="res://Game/Background/default.svg" id="1_f54l4"]
 [ext_resource type="PackedScene" uid="uid://don858eg3vhhb" path="res://Player/player.tscn" id="1_mlf6e"]
-[ext_resource type="Texture2D" uid="uid://c4spwfa0pgi7e" path="res://bg.svg" id="2_po0ka"]
 [ext_resource type="Script" uid="uid://dljf4ulbwi43o" path="res://General/weapon_spawner.gd" id="3_v1wow"]
 [ext_resource type="PackedScene" uid="uid://dsfg0fxtgsg5t" path="res://Weapon/Scenes/dagger_black.tscn" id="4_e35lh"]
 [ext_resource type="PackedScene" uid="uid://c26hwhk561kc3" path="res://Weapon/Scenes/dagger_red.tscn" id="5_udeyl"]
@@ -119,9 +119,8 @@ _data = {
 [node name="Root2D" type="Node2D" parent="." unique_id=1694134432]
 
 [node name="Background" type="Sprite2D" parent="Root2D" unique_id=92963086]
-self_modulate = Color(0.44257864, 0.7465028, 1, 1)
 position = Vector2(961, 539)
-texture = ExtResource("2_po0ka")
+texture = ExtResource("1_f54l4")
 
 [node name="Player" parent="Root2D" unique_id=852195628 node_paths=PackedStringArray("game_over_ui") instance=ExtResource("1_mlf6e")]
 position = Vector2(960, 540)

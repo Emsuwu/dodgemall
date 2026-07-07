@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1280.3779mm"
+   height="720.37799mm"
+   viewBox="0 0 1280.3779 720.37799"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2"><rect
+         style="fill:#f5aaaa;fill-opacity:1;stroke:#ffffff;stroke-width:0.378;stroke-linejoin:round;paint-order:stroke fill markers"
+         id="rect3"
+         width="1280"
+         height="720"
+         x="23.446154"
+         y="148.16667" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3"><rect
+         style="fill:#f5aaaa;fill-opacity:1;stroke:#ffffff;stroke-width:0.378;stroke-linejoin:round;paint-order:stroke fill markers"
+         id="rect4"
+         width="1280"
+         height="720"
+         x="23.446154"
+         y="148.16667" /></clipPath></defs><g
+     id="layer7"
+     transform="translate(3559.3619,-1321.3105)"><rect
+       style="fill:#005522;fill-opacity:1;stroke:#ffffff;stroke-width:0.378;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="rect8"
+       width="1280"
+       height="720"
+       x="-3559.1729"
+       y="1321.4995" /><ellipse
+       style="fill:#002b11;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="ellipse8"
+       cx="663.44617"
+       cy="187.64255"
+       rx="906.55585"
+       ry="157.34177"
+       clip-path="url(#clipPath3)"
+       transform="translate(-3582.619,1173.3328)" /><ellipse
+       style="fill:#002b11;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="ellipse9"
+       cx="663.44617"
+       cy="828.6908"
+       rx="906.55585"
+       ry="157.34177"
+       clip-path="url(#clipPath2)"
+       transform="translate(-3582.619,1173.3328)" /></g></svg>

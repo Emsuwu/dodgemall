@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1280.3781mm"
+   height="720.37799mm"
+   viewBox="0 0 1280.3781 720.37799"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2"><rect
+         style="fill:#f5aaaa;fill-opacity:1;stroke:#ffffff;stroke-width:0.378;stroke-linejoin:round;paint-order:stroke fill markers"
+         id="rect3"
+         width="1280"
+         height="720"
+         x="23.446154"
+         y="148.16667" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3"><rect
+         style="fill:#f5aaaa;fill-opacity:1;stroke:#ffffff;stroke-width:0.378;stroke-linejoin:round;paint-order:stroke fill markers"
+         id="rect4"
+         width="1280"
+         height="720"
+         x="23.446154"
+         y="148.16667" /></clipPath></defs><g
+     id="layer7"
+     transform="translate(1898.9499,-1340.0194)"><rect
+       style="fill:#5555ff;fill-opacity:1;stroke:#ffffff;stroke-width:0.378;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="rect68"
+       width="1280"
+       height="720"
+       x="-1898.761"
+       y="1340.2084" /><ellipse
+       style="fill:#aaaaff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="ellipse69"
+       cx="663.44617"
+       cy="187.64255"
+       rx="906.55585"
+       ry="157.34177"
+       clip-path="url(#clipPath3)"
+       transform="translate(-1922.2071,1192.0417)" /><ellipse
+       style="fill:#aaaaff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="ellipse70"
+       cx="663.44617"
+       cy="828.6908"
+       rx="906.55585"
+       ry="157.34177"
+       clip-path="url(#clipPath2)"
+       transform="translate(-1922.2071,1192.0417)" /></g></svg>
